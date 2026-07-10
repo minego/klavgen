@@ -52,6 +52,7 @@ from .classes import (
 # Config
 from .config import (
     CaseConfig,
+	ScrewHoleConfig,
     ChocKeyConfig,
     ChocSwitchHolderConfig,
     Config,

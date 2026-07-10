@@ -7,12 +7,22 @@ use_choc = False
 X = CHOC_KEY_X_SPACING if use_choc else MX_KEY_X_SPACING
 Y = CHOC_KEY_Y_SPACING if use_choc else MX_KEY_Y_SPACING
 
+# Adjusted the defaults to work with M2 threaded inserts, and M2 screws
+screw_hole_config=ScrewHoleConfig(
+	screw_hole_body_radius=2/2,
+    screw_hole_plate_radius=2.2/2,
+	screw_insert_hole_width=2.8/2,
+	screw_head_radius=2.2/2,
+    screw_rim_radius=2.2/2,
+)
+
 config_left = Config(
 	case_config=CaseConfig(
 		filename_prefix='left_',
 		side_fillet=7,
         switch_type=SwitchType.CHOC if use_choc else SwitchType.MX,
 	),
+	screw_hole_config=screw_hole_config,
     mx_key_config=MXKeyConfig(case_tile_margin=7.5),
     choc_key_config=ChocKeyConfig(case_tile_margin=7.6),
     controller_config=ControllerConfig(case_tile_margin=5, usb_port_hole_width=10),
@@ -87,6 +97,7 @@ config_right = Config(
 		side_fillet=None,
         switch_type=SwitchType.CHOC if use_choc else SwitchType.MX,
 	),
+	screw_hole_config=screw_hole_config,
     mx_key_config=MXKeyConfig(case_tile_margin=7.5),
     choc_key_config=ChocKeyConfig(case_tile_margin=7.6),
     controller_config=ControllerConfig(case_tile_margin=5, usb_port_hole_width=10),
