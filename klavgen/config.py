@@ -63,6 +63,9 @@ class CaseConfig:
     switch_type: SwitchType = SwitchType.MX
     use_switch_holders: bool = True
 
+    # A prefix to use for the keyboard_top.stl and keyboard_bottom.stl files
+    filename_prefix: any = None
+
     case_thickness: float = 2  # 2.4
 
     # Total height, including top and bottom thickness

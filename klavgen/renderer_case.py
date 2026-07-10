@@ -43,6 +43,7 @@ from .renderer_trrs_jack import render_trrs_jack_case_cutout_and_support, render
 
 @dataclass
 class RenderCaseResult:
+    prefix: Any = None
     keys: Optional[List[Key]] = (None,)
     switch_holes: Any = None
     screw_hole_rims: Any = None
@@ -118,6 +119,9 @@ def render_case(
         result = RenderCaseResult()
 
     result.keys = keys
+
+    if config.case_config.filename_prefix:
+        result.prefix=config.case_config.filename_prefix,
 
     case_config = config.case_config
     switch_holder_config = config.get_switch_holder_config()
@@ -725,8 +729,12 @@ def get_y_at_x_intersection(obj, x, highest_y=True):
 
 
 def export_case_to_stl(result: RenderCaseResult):
-    cq.exporters.export(result.top, "keyboard_top.stl")
-    cq.exporters.export(result.bottom, "keyboard_bottom.stl")
+    if result.prefix:
+        cq.exporters.export(result.top, "%skeyboard_top.stl" % result.prefix)
+        cq.exporters.export(result.bottom, "%skeyboard_bottom.stl" % result.prefix)
+    else:
+        cq.exporters.export(result.top, "keyboard_top.stl")
+        cq.exporters.export(result.bottom, "keyboard_bottom.stl")
     if result.palm_rests:
         if len(result.palm_rests) == 1:
             cq.exporters.export(result.palm_rests[0], f"palm_rest.stl")

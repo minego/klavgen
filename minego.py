@@ -8,6 +8,7 @@ use_choc = False
 # config = Config(case_config=CaseConfig())
 config = Config(
 	case_config=CaseConfig(
+		filename_prefix='left_',
 		side_fillet=7,
         switch_type=SwitchType.CHOC if use_choc else SwitchType.MX,
 	),
