@@ -112,7 +112,7 @@ config_right = Config(
 		side_fillet=side_fillet,
 		switch_plate_top_fillet=switch_plate_top_fillet,
         switch_type=SwitchType.CHOC if use_choc else SwitchType.MX,
-        case_base_height=9 if use_choc else 11,
+        case_base_height=8.4 if use_choc else 11,
 	),
 	screw_hole_config=screw_hole_config,
     mx_key_config=mx_key_config,
