@@ -16,6 +16,13 @@ screw_hole_config=ScrewHoleConfig(
     screw_rim_radius=2.2/2,
 )
 
+# nice!nano with a USB-C port
+controller_config=ControllerConfig(
+	case_tile_margin=5,
+	usb_port_hole_width=10,
+    item_depth = 35.2,
+)
+
 config_left = Config(
 	case_config=CaseConfig(
 		filename_prefix='left_',
@@ -25,7 +32,7 @@ config_left = Config(
 	screw_hole_config=screw_hole_config,
     mx_key_config=MXKeyConfig(case_tile_margin=7.5),
     choc_key_config=ChocKeyConfig(case_tile_margin=7.6),
-    controller_config=ControllerConfig(case_tile_margin=5, usb_port_hole_width=10),
+    controller_config=controller_config,
 )
 
 # keys = generate_keys_from_kle_json("../columar-split-60-left.json")
@@ -100,7 +107,7 @@ config_right = Config(
 	screw_hole_config=screw_hole_config,
     mx_key_config=MXKeyConfig(case_tile_margin=7.5),
     choc_key_config=ChocKeyConfig(case_tile_margin=7.6),
-    controller_config=ControllerConfig(case_tile_margin=5, usb_port_hole_width=10),
+    controller_config=controller_config,
 )
 
 
