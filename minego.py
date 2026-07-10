@@ -9,11 +9,8 @@ Y = CHOC_KEY_Y_SPACING if use_choc else MX_KEY_Y_SPACING
 
 # Adjusted the defaults to work with M2 threaded inserts, and M2 screws
 screw_hole_config=ScrewHoleConfig(
-	screw_hole_body_radius=2/2,
     screw_hole_plate_radius=2.2/2,
 	screw_insert_hole_width=2.8/2,
-	screw_head_radius=2.2/2,
-    screw_rim_radius=2.2/2,
 )
 
 # nice!nano with a USB-C port
@@ -154,7 +151,7 @@ keys_right = [
   Key(x=6 *-MX_KEY_X_SPACING, y=4.125	* - MX_KEY_Y_SPACING), # super
   Key(x=7 *-MX_KEY_X_SPACING, y=4.25	* - MX_KEY_Y_SPACING), # space
 ]
-controller_right = Controller(x=6 *-MX_KEY_X_SPACING, y=-0.8 * - MX_KEY_Y_SPACING)
+controller_right = Controller(x=8 *-MX_KEY_X_SPACING, y=-0.8 * - MX_KEY_Y_SPACING)
 
 screw_holes_right = [
 	ScrewHole(x=-0.6 *-MX_KEY_X_SPACING, y=-0.5 * -MX_KEY_Y_SPACING),
