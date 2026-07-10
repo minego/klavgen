@@ -2,10 +2,14 @@ import cadquery as cq
 
 from klavgen import *
 
-use_choc = False
+use_choc = True
 
 X = CHOC_KEY_X_SPACING if use_choc else MX_KEY_X_SPACING
 Y = CHOC_KEY_Y_SPACING if use_choc else MX_KEY_Y_SPACING
+
+# side_fillet=7
+side_fillet=None
+switch_plate_top_fillet=0.5
 
 # Adjusted the defaults to work with M2 threaded inserts, and M2 screws
 screw_hole_config=ScrewHoleConfig(
@@ -20,15 +24,22 @@ controller_config=ControllerConfig(
     item_depth = 35.2,
 )
 
+mx_key_config=MXKeyConfig(case_tile_margin=7.5)
+choc_key_config=ChocKeyConfig(
+	case_tile_margin=7.6,
+)
+
 config_left = Config(
 	case_config=CaseConfig(
 		filename_prefix='left_',
-		side_fillet=7,
+		side_fillet=side_fillet,
+		switch_plate_top_fillet=switch_plate_top_fillet,
         switch_type=SwitchType.CHOC if use_choc else SwitchType.MX,
+        case_base_height=8.4 if use_choc else 11,
 	),
 	screw_hole_config=screw_hole_config,
-    mx_key_config=MXKeyConfig(case_tile_margin=7.5),
-    choc_key_config=ChocKeyConfig(case_tile_margin=7.6),
+    mx_key_config=mx_key_config,
+    choc_key_config=choc_key_config,
     controller_config=controller_config,
 )
 
@@ -98,12 +109,14 @@ patches_left = [
 config_right = Config(
 	case_config=CaseConfig(
 		filename_prefix='right_',
-		side_fillet=None,
+		side_fillet=side_fillet,
+		switch_plate_top_fillet=switch_plate_top_fillet,
         switch_type=SwitchType.CHOC if use_choc else SwitchType.MX,
+        case_base_height=9 if use_choc else 11,
 	),
 	screw_hole_config=screw_hole_config,
-    mx_key_config=MXKeyConfig(case_tile_margin=7.5),
-    choc_key_config=ChocKeyConfig(case_tile_margin=7.6),
+    mx_key_config=mx_key_config,
+    choc_key_config=choc_key_config,
     controller_config=controller_config,
 )
 
